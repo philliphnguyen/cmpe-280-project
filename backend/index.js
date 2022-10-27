@@ -1,13 +1,14 @@
 const express = require('express')
 const app = express()
 
+require('dotenv').config()
+
 const cors = require('cors')
 app.use(cors())
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const { mongoDB } = require('./dbConfig')
 const mongoose = require('mongoose');
 var options = {
     useNewUrlParser: true,
@@ -15,7 +16,7 @@ var options = {
     maxPoolSize: 500
 };
 
-mongoose.connect(mongoDB, options, (err, res) => {
+mongoose.connect(process.env.MONGODB, options, (err, res) => {
     if (err) {
         console.log(err);
         console.log(`MongoDB Connection Failed`);
