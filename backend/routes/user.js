@@ -3,6 +3,15 @@ const router = new express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const passport = require('passport')
+
+const getJWT = (user) => {
+    const payload = { _id: user._id, email: user.email }
+    return jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: 100800
+    })
+}
 
 //Create an account
 router.post('/register', async (req, res) => {
@@ -22,8 +31,12 @@ router.post('/register', async (req, res) => {
             try {
                 const result = await newUser.save()
 
+                const jwt = getJWT(result)
+
                 res.status(200).send({
-                    success: true
+                    success: true,
+                    jwt: jwt,
+                    user: result
                 })
             }
             catch(err) {
@@ -49,8 +62,11 @@ router.post('/login', async (req, res) => {
         const matchedPasswords = await bcrypt.compare(password, foundUser.password)
 
         if (matchedPasswords) {
+            const jwt = getJWT(foundUser)
+
             res.status(200).send({
                 success: true,
+                jwt: jwt,
                 user: foundUser
             })
         }

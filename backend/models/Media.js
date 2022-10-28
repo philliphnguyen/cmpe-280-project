@@ -7,7 +7,13 @@ const MediaSchema = new mongoose.Schema({
     rottenTomatoes: String,
     platforms: [String],
     type: String,
-    imageURL: String
+    imageURL: String,
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 module.exports = mongoose.model("Media", MediaSchema);

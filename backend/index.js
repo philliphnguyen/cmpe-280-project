@@ -27,9 +27,15 @@ mongoose.connect(process.env.MONGODB, options, (err, res) => {
 
 require('./models/Media')
 require('./models/User')
+require('./models/Comment')
 
 app.use('/media', require('./routes/media'))
 app.use('/user', require('./routes/user'))
+app.use('/comment', require('./routes/comment'))
+
+const passport = require('passport')
+require('./passport')(passport)
+app.use(passport.initialize())
 
 const port = 3000
 
