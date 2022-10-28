@@ -26,8 +26,10 @@ mongoose.connect(process.env.MONGODB, options, (err, res) => {
 });
 
 require('./models/Media')
+require('./models/User')
 
 app.use('/media', require('./routes/media'))
+app.use('/user', require('./routes/user'))
 
 const port = 3000
 
