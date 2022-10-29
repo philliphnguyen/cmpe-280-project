@@ -10,10 +10,8 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true }, 
   watchlist: [
     {
-        media: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Media"
-        }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Media"
     }
   ]
 });

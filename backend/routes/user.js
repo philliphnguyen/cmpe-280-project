@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const passport = require('passport')
 
 const getJWT = (user) => {
     const payload = { _id: user._id, email: user.email }

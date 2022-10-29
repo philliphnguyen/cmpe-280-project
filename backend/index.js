@@ -32,6 +32,7 @@ require('./models/Comment')
 app.use('/media', require('./routes/media'))
 app.use('/user', require('./routes/user'))
 app.use('/comment', require('./routes/comment'))
+app.use('/watchlist', require('./routes/watchlist'))
 
 const passport = require('passport')
 require('./passport')(passport)
