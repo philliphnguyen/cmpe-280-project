@@ -4,8 +4,6 @@
 In the backend folder, create a .env file with the following attributes and assign them to values
 ```
 MONGODB
-GOOGLE_CLIENT_ID
-GOOGLE_CLIENT_SECRET
 JWT_SECRET
 ```
 Install *node package manager (npm)* if you haven't done so already
