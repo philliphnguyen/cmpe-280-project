@@ -24,9 +24,9 @@ router.post('/register', async (req, res) => {
             const newUser = new User({
                 email: email,
                 name: name,
-                password: hash
+                password: hash,
+                watchlist: []
             })
-
             try {
                 const result = await newUser.save()
 
