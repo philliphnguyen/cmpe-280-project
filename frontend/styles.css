@@ -21,3 +21,35 @@
 .form-group > * {
     margin-bottom: 10px;
 }
+
+.indiv-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+#platform-container > * {
+    display: inline-block;
+}
+
+.platform {
+    background-color: #E1EDF4;
+    padding: 1px 5px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.indiv-watchlist-container {
+    margin-left: 200px;
+    margin-top: 5px;
+}
+
+.comments-container {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+
+.clear-button {
+    border-color: black;
+}

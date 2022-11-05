@@ -21,7 +21,7 @@ router.get('/all', async (req, res) => {
 
 router.get('/getById/:id', async (req, res) => {
     try {
-        const media = await Media.findById(req.params.id).populate({ path: 'comments', 
+        const media = await Media.findById(req.params.id).populate({ path: 'comments', options: { sort: { 'createdAt': -1 } },
             populate: { path: 'user',  select: 'name'}})
 
         res.status(200).send({

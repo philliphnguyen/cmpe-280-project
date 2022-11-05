@@ -13,3 +13,10 @@ document.getElementById('nav-logout').onclick = () => {
     localStorage.removeItem('user')
     window.location.href = 'index.html'
 }
+
+document.getElementById('search-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault()
+        console.log('enter')
+    }
+})

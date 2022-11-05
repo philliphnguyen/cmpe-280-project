@@ -3,6 +3,7 @@ class Navbar extends HTMLElement {
         this.innerHTML = `
         <nav class="navbar navbar-dark bg-dark px-3 navbar-expand-lg">
             <a class="navbar-brand" href="index.html">Logo</a>
+            <input type='text' class='w-75' id='search-input'>
             <ul class="navbar-nav ms-auto">
                  <li class="nav-item" id="nav-watchlist">
                     <a href="watchlist.html" class="nav-link">Watchlist</a>
