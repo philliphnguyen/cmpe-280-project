@@ -193,7 +193,7 @@
 
                     // replace the content of the movielist with netflix movies
                     let htmlString = '<div class="container-fluid" id="movielist"><div class="row"><div class="col-2"></div>'
-                    for (let j = 0; j < 12; j++) {
+                    for (let j = 0; j < 24; j++) {
                         htmlString += `<div class="col-2 text-center"><img style="width: 200px; height: 300px" src=${media[j].imageURL}><p>${media[j].title}</p></div>`
                         if ([3, 7, 11, 15, 19, 23].includes(j)) {
                             htmlString += '<div class="col-2"></div></div><div class="row"><div class="col-2"></div>'
@@ -201,7 +201,7 @@
                     }
                     htmlString += '<div class="col-2"></div></div></div>'
                     // add pagination
-                    
+
                     document.getElementById('movielist').innerHTML = htmlString;
 
                 })
