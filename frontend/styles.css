@@ -53,3 +53,7 @@
 .clear-button {
     border-color: black;
 }
+
+.active {
+    background-color: #000000;
+}

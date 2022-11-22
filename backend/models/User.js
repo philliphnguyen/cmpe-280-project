@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     unique: true,
   },
   password: { type: String, required: true },
-  name: { type: String, required: true }, 
+  name: { type: String, required: true },
   watchlist: [
     {
       type: mongoose.Schema.Types.ObjectId,
