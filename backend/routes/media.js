@@ -36,10 +36,10 @@ router.get('/getById/:id', async (req, res) => {
     }
 })
 
-router.post('/search', async (req, res) => {
+router.get('/search', async (req, res) => {
     try {
         console.log(req.body)
-        const searchCriteria = req.body.query.match(/"[^"]*"|[^\s"]+/g)
+        const searchCriteria = req.query.query.match(/"[^"]*"|[^\s"]+/g)
         console.log(searchCriteria)
         let media = await Media.find({}).lean()
 

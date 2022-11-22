@@ -17,6 +17,6 @@ document.getElementById('nav-logout').onclick = () => {
 document.getElementById('search-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault()
-        console.log('enter')
+        window.location.href = "search.html?query=" + document.getElementById('search-input').value
     }
 })
