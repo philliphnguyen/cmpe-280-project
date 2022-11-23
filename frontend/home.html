@@ -176,12 +176,12 @@
 
             let requestBody = "query=" + `platform:${buttons[i].id}`;
             let data = {};
-            fetch('http://localhost:3000/media/search', {
-                method: 'POST',
+            fetch(`http://localhost:3000/media/search?${requestBody}`, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: requestBody,
+                }
+                // body: requestBody,
             })
                 .then(response => response.json())
                 .then(_data => {
