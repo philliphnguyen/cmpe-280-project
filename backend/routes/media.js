@@ -49,6 +49,7 @@ router.get('/search', async (req, res) => {
                 platform = platform.charAt(0).toUpperCase() + platform.slice(1);
 
                 if (platform === 'Prime') platform = 'Prime Video'
+                else if (platform === 'Disney') platform = 'Disney+'
 
                 media = media.filter(m => m.platforms.includes(platform))
             } else if (criteria.substring(0, 5) === 'year:') {
