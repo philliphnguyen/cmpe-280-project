@@ -87,4 +87,19 @@ router.get('/search', async (req, res) => {
     }
 })
 
+router.get('/top-movies', async (req, res) => {
+    try {
+        const media = await Media.find({}).sort({rottenTomatoes: -1}).limit(10)
+
+        res.status(200).send({
+            success: true,
+            media: media
+        })
+    } catch (err) {
+        res.status(400).send({
+            success: false,
+        })
+    }
+})
+
 module.exports = router
