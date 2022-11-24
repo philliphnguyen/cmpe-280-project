@@ -50,6 +50,15 @@
     vertical-align: top;
 }
 
+.comments-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-container label {
+    font-size: 32px;
+}
+
 .clear-button {
     border-color: black;
 }
