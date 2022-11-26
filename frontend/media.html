@@ -52,7 +52,6 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search)
     const mediaID = urlParams.get('id')
-    console.log({mediaID})
 
     const getMedia = async () => {
         const res = await fetch(API_URL + '/media/getById/' + mediaID)
@@ -64,6 +63,11 @@
         } else {
             window.location.href = 'index.html'
         }
+    }
+
+    const clickPlatform = (e) => {
+        console.log(e.id)
+        window.location.href = "search.html?query=platform:" + e.id
     }
 
     const renderMedia = (media) => {
@@ -84,7 +88,12 @@
 
         const platforms = document.getElementById('platform-container')
         for (const platform of media.platforms) {
-            platforms.innerHTML += `<p class='platform'>${platform}</p>`
+            let id
+            if (platform === 'Prime Video') id = 'prime'
+            else if (platform === 'Disney+') id = 'disney'
+            else id = platform.charAt(0).toLowerCase() + platform.slice(1)
+
+            platforms.innerHTML += `<div class='platform' id=${id} onclick="clickPlatform(${id})">${platform}</div>`
         }
 
         const comments = document.getElementById('comments-container')
