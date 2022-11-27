@@ -70,8 +70,9 @@
         }
         
         if(id.clientWidth<id.scrollWidth){
+            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollleft" onClick="scrollLeft()"><</button>`
             
-            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollleft" onClick="scrollRight()">></button>`
+            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollright" onClick="scrollRight()">></button>`
             
         }
     }
@@ -96,6 +97,10 @@
     function scrollRight(){
         
         id.scrollLeft+=100
+    }
+    function scrollLeft(){
+        
+        id.scrollRight-=100
     }
     
     
