@@ -37,7 +37,7 @@ router.delete('/:id', passport.authenticate("jwt", { session: false }), async (r
 router.get('/', passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate('watchlist')
-        const watchlist = user.watchlist.reverse()
+        const watchlist = user.watchlist
 
         res.status(200).send({
             success: true,

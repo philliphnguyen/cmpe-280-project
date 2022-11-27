@@ -81,7 +81,7 @@
         const endIndex = startIndex + 12;
         const moviesToRender = movies.slice(startIndex, endIndex);
         for (let i = 0; i < moviesToRender.length; i++) {
-            movieContainer.innerHTML += `<a class="flex flex-col cursor-pointer" href="/media.html?id=${moviesToRender[i]._id}">
+            movieContainer.innerHTML += `<a class="flex flex-col cursor-pointer" href="/frontend/media.html?id=${moviesToRender[i]._id}">
             <img src=${moviesToRender[i].imageURL} alt="movie thumbnail" class="w-full h-[300px] object-cover rounded-lg">
             <div class="flex flex-row justify-between mt-2">
                 <div class="flex flex-col w-[70%]">
