@@ -86,13 +86,13 @@
 
 #scrollleft{
     position: absolute;
-    right: 10px;
+    left: 10px;
     border-radius: 50px;
     
 }
 #scrollright{
     position: absolute;
-    left: 10px;
+    right: 10px;
     border-radius: 50px;
     
 }
