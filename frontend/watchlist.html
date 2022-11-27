@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>watchlist</title>
+    
 </head>
 
 <body>
@@ -27,46 +28,21 @@
             </li>
         </ul>
     </nav>
-    <input type='text' class='w-75' id='search-input'>
-    <div>
-        <h1>Watchlist</h1>
-        <button>Sort by</button>
+    <form class="nosubmit">
+        <input class="nosubmit" type="search" placeholder="Search..." id="searchBar">
+    </form>
+    <div class="top-container">
+        <p id="watchlistText" >Watchlist</p>
+        <div id="sortBy">
+            <button type="button" class="btn btn-dark " >Sort by</button>
+        </div>
 
     </div>
-    <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-			
-        <div class="col-5">
-            <div class="card card-block card-1"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-2"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-3"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-4"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-5"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-6"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-7"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-8"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-9"></div>
-        </div>
-        <div class="col-5">
-            <div class="card card-block card-10"></div>
-        </div>
-</div>
-   <button>Add more</button>
+    
+    <div class="watchlist-container" id="watchlist-container">
+
+    </div>
+  
 
 
 </body>
@@ -75,26 +51,33 @@
 <script src="api.js"></script>
 <script>
     let watchlist=[]
+    let id= document.getElementById('watchlist-container');
     function renderWatchlist(){
-        let scrollimages= document.getElementById("scroll-images");
-        if(scrollimages.clientWidth>scrollimages.scrollWidth){
-            document.getElementById("right").innerHTML=null;
-            document.getElementById("right").innerHTML=null;
-        }
-        // let id= document.getElementById('watchlist-container');
-        // id.innerHTML=''
-        // for(let i=0;i<watchlist.length;i++){
-        //     id.innerHTML+= `<div >
-        //         <div class="card" style="width: 18rem;">
-        //             <div class="card-body">
-        //                 <img src=${watchlist[i].imageURL} class="card-img-top" alt="..." >
-        //                 <h5 class="card-title">${watchlist[i].title}</h5>
-        //             </div>
-        //         </div>
-        //     </div>`
+            
         
+        const watchlistLength= watchlist.length;
+        
+        id.innerHTML=''
+        for(let i=0;i<watchlistLength;i++){
+            id.innerHTML+= `<div class="Watchlist">
+                
+                <img src=${watchlist[i].imageURL} alt="movie thumbnail" class="w-full h-[300px] object-cover rounded-lg" id="movieImage">
+                <span class="text-lg font-medium truncate overflow-hidden ... mr-8">${watchlist[i].title}</span>
+                    
+               
+                
+            
+                <button type="button" class="btn btn-dark " id="deleteButton" onClick="removeWatchlist(${watchlist[i]._id})">-</button>
+            </div>`
+        }
+        
+        if(id.clientWidth<id.scrollWidth){
+            
+            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollleft" onClick="scrollRight()">></button>`
+            
+        }
     }
-    console.log(JSON.parse(localStorage.getItem('user')).jwt)
+    
     function getWatchlist(){
         fetch(`${API_URL}/watchlist/`,{
             method: 'GET',
@@ -103,19 +86,47 @@
                 'authorization':JSON.parse(localStorage.getItem('user')).jwt
             }
         }).then(response=>response.json()).then(data=>{
-            console.log(data.watchlist)
+
             watchlist= data.watchlist;
+            renderWatchlist();
+            
             
         }).catch(error=>{
             console.log(err)
         })
     }
+    function scrollRight(){
+        
+        id.scrollLeft+=100
+    }
+    
+    
     getWatchlist();
-</script>
-<script>
+    document.getElementById('searchBar').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault()
+        watchlist= watchlist.filter((item)=>{
+            return item.title.includes(document.getElementById('searchBar'))
+        })
+        renderWatchlist();
+        
+    }
+    
+})
+function removeWatchlist(id){
+    fetch(`${API_URL}/watchlist/${id}`,{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'authorization':JSON.parse(localStorage.getItem('user')).jwt
+            }}
+    ).then(response=>{
+        getWatchlist();
+    }).catch(error=>console.log(error))
+}
 
 </script>
+
 
 
 </html>
-
