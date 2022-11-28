@@ -40,8 +40,6 @@
     <div class="watchlist-container" id="watchlist-container">
 
     </div>
-  
-
 
 </body>
 
@@ -57,15 +55,17 @@
         
         id.innerHTML=''
         for(let i=0;i<watchlistLength;i++){
+            movieId = watchlist[i]._id + ""
             id.innerHTML+= `<div class="Watchlist" >
                 <a href="media.html?id=${watchlist[i]._id}">
                 <img src=${watchlist[i].imageURL} alt="movie thumbnail" class="w-full h-[300px] object-cover rounded-lg" id="movieImage">
+                <br/>
                 <span class="text-lg font-medium truncate overflow-hidden ... mr-8">${watchlist[i].title}</span>
                     
             </a>
                 
             
-                <a class="btn btn-dark " href= "watchlist.html?id=${watchlist[i]._id}" id="deleteButton" onClick="removeWatchlist()">-</a>
+                <a class="btn btn-dark " id="deleteButton" onclick="removeWatchlist('${movieId}')">-</a>
             </div>`
         }
         
@@ -110,18 +110,18 @@
     if (e.key === 'Enter') {
         e.preventDefault()
         watchlist= watchlist.filter((item)=>{
-            return item.title.includes(document.getElementById('searchBar').value)
+            return item.title.toLowerCase().includes(document.getElementById('searchBar').value.toLowerCase())
         })
         renderWatchlist();
-        
+     
     }
     
 })
-function removeWatchlist(){
+function removeWatchlist(id){
     const urlParams = new URLSearchParams(window.location.search)
     const mediaID = urlParams.get('id')
     console.log(mediaID);
-    fetch(`${API_URL}/watchlist/${mediaID}`,{
+    fetch(`${API_URL}/watchlist/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -133,7 +133,4 @@ function removeWatchlist(){
 }
 
 </script>
-
-
-
 </html>
