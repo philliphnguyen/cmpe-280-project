@@ -57,20 +57,20 @@
         
         id.innerHTML=''
         for(let i=0;i<watchlistLength;i++){
-            id.innerHTML+= `<div class="Watchlist">
-                
+            id.innerHTML+= `<div class="Watchlist" >
+                <a href="media.html?id=${watchlist[i]._id}">
                 <img src=${watchlist[i].imageURL} alt="movie thumbnail" class="w-full h-[300px] object-cover rounded-lg" id="movieImage">
                 <span class="text-lg font-medium truncate overflow-hidden ... mr-8">${watchlist[i].title}</span>
                     
-               
+            </a>
                 
             
-                <button type="button" class="btn btn-dark " id="deleteButton" onClick="removeWatchlist(${watchlist[i]._id})">-</button>
+                <a class="btn btn-dark " href= "watchlist.html?id=${watchlist[i]._id}" id="deleteButton" onClick="removeWatchlist()">-</a>
             </div>`
         }
         
         if(id.clientWidth<id.scrollWidth){
-            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollleft" onClick="scrollLeft()"><</button>`
+            id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollleft" onClick="scrollto()"><</button>`
             
             id.innerHTML+= `<button type="button" class="btn btn-light" id="scrollright" onClick="scrollRight()">></button>`
             
@@ -98,9 +98,10 @@
         
         id.scrollLeft+=100
     }
-    function scrollLeft(){
+    function scrollto(){
+        console.log('scroll')
         
-        id.scrollRight-=100
+        id.scrollLeft-=100
     }
     
     
@@ -109,15 +110,18 @@
     if (e.key === 'Enter') {
         e.preventDefault()
         watchlist= watchlist.filter((item)=>{
-            return item.title.includes(document.getElementById('searchBar'))
+            return item.title.includes(document.getElementById('searchBar').value)
         })
         renderWatchlist();
         
     }
     
 })
-function removeWatchlist(id){
-    fetch(`${API_URL}/watchlist/${id}`,{
+function removeWatchlist(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const mediaID = urlParams.get('id')
+    console.log(mediaID);
+    fetch(`${API_URL}/watchlist/${mediaID}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
