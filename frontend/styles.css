@@ -135,6 +135,7 @@ form.nosubmit {
     top:1px;
     right:4px;
     border-radius: 37px;
+    color: white;
 }
 
 .Watchlist{
@@ -152,4 +153,8 @@ form.nosubmit {
 }
 .Watchlist img{
     margin-top: 10px;
+}
+.Watchlist a{
+    text-decoration: none;
+    color: black;
 }
