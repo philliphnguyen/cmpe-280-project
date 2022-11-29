@@ -27,7 +27,7 @@
 <app-navbar></app-navbar>
 
 <div>
-    <div class="relative">
+    <div class="relative mt-1">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden sm:h-64 xl:h-80 2xl:h-96" id="slider-wrapper">
             <!-- Item 1 -->
@@ -139,7 +139,7 @@
             innerCarousel.innerHTML = '';
             for (let i = 0; i < data.media.length; i++) {
                 carouselSlider.innerHTML += `<div class="hidden duration-700 ease-in-out" id="carousel-item-${i + 1}">
-                    <img src=${data.media[i].imageURL} alt="carousel item ${i + 1}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src=${data.media[i].imageURL} alt="carousel item ${i + 1}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                 </div>`;
                 innerCarousel.innerHTML += `<button id="carousel-indicator-${i + 1}" type="button" class="w-3 h-3 rounded-full" aria-current="true"
                     aria-label="Slide ${i + 1}"></button>`;
