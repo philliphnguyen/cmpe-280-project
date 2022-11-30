@@ -87,19 +87,19 @@
     </div>
 
     <div class="mt-4 flex relative items-center w-full justify-center gap-32">
-        <button type="button" onclick="location.replace('/frontend/search.html?query=platform:prime')"
+        <button type="button" onclick="location.replace('/search.html?query=platform:prime')"
                 class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
             Prime
         </button>
-        <button type="button" onclick="location.replace('/frontend/search.html?query=platform:netflix')"
+        <button type="button" onclick="location.replace('/search.html?query=platform:netflix')"
                 class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
             Netflix
         </button>
-        <button type="button" onclick="location.replace('/frontend/search.html?query=platform:disney')"
+        <button type="button" onclick="location.replace('/search.html?query=platform:disney')"
                 class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
             Disney+
         </button>
-        <button type="button" onclick="location.replace('/frontend/search.html?query=platform:hulu')"
+        <button type="button" onclick="location.replace('/search.html?query=platform:hulu')"
                 class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
             Hulu
         </button>
@@ -209,7 +209,7 @@
         const endIndex = startIndex + 12;
         const moviesToRender = movies.slice(startIndex, endIndex);
         for (let i = 0; i < moviesToRender.length; i++) {
-            movieContainer.innerHTML += `<a class="flex flex-col cursor-pointer" href="/frontend/media.html?id=${moviesToRender[i]._id}">
+            movieContainer.innerHTML += `<a class="flex flex-col cursor-pointer" href="/media.html?id=${moviesToRender[i]._id}">
             <img src=${moviesToRender[i].imageURL} alt="movie thumbnail" class="w-full h-[300px] object-cover rounded-lg">
             <div class="flex flex-row justify-between mt-2">
                 <div class="flex flex-col w-[70%]">
