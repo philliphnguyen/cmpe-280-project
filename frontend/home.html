@@ -18,7 +18,7 @@
         }
 
     </script>
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@latest/dist/flowbite.min.css"/>
+    <link href="https://unpkg.com/flowbite@latest/dist/flowbite.min.css" rel="stylesheet"/>
     <script src="https://unpkg.com/flowbite@latest/dist/flowbite.js"></script>
     <script src="api.js"></script>
 </head>
@@ -31,76 +31,84 @@
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden sm:h-64 xl:h-80 2xl:h-96" id="slider-wrapper">
             <!-- Item 1 -->
-            <div id="carousel-item-1" class="hidden duration-700 ease-in-out">
+            <div class="hidden duration-700 ease-in-out" id="carousel-item-1">
                 <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img alt="..."
+                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                     src="https://flowbite.com/docs/images/carousel/carousel-1.svg">
             </div>
             <!-- Item 2 -->
-            <div id="carousel-item-2" class="hidden duration-700 ease-in-out">
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="hidden duration-700 ease-in-out" id="carousel-item-2">
+                <img alt="..."
+                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                     src="https://flowbite.com/docs/images/carousel/carousel-2.svg">
             </div>
             <!-- Item 3 -->
-            <div id="carousel-item-3" class="hidden duration-700 ease-in-out">
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="hidden duration-700 ease-in-out" id="carousel-item-3">
+                <img alt="..."
+                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                     src="https://flowbite.com/docs/images/carousel/carousel-3.svg">
             </div>
             <!-- Item 4 -->
-            <div id="carousel-item-4" class="hidden duration-700 ease-in-out">
-                <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="hidden duration-700 ease-in-out" id="carousel-item-4">
+                <img alt="..."
+                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                     src="https://flowbite.com/docs/images/carousel/carousel-4.svg">
             </div>
         </div>
         <!-- Slider indicators -->
         <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2" id="slider-indicators">
-            <button id="carousel-indicator-1" type="button" class="w-3 h-3 rounded-full" aria-current="true"
-                    aria-label="Slide 1"></button>
-            <button id="carousel-indicator-2" type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                    aria-label="Slide 2"></button>
-            <button id="carousel-indicator-3" type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                    aria-label="Slide 3"></button>
-            <button id="carousel-indicator-4" type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                    aria-label="Slide 4"></button>
+            <button aria-current="true" aria-label="Slide 1" class="w-3 h-3 rounded-full" id="carousel-indicator-1"
+                    type="button"></button>
+            <button aria-current="false" aria-label="Slide 2" class="w-3 h-3 rounded-full" id="carousel-indicator-2"
+                    type="button"></button>
+            <button aria-current="false" aria-label="Slide 3" class="w-3 h-3 rounded-full" id="carousel-indicator-3"
+                    type="button"></button>
+            <button aria-current="false" aria-label="Slide 4" class="w-3 h-3 rounded-full" id="carousel-indicator-4"
+                    type="button"></button>
         </div>
         <!-- Slider controls -->
-        <button id="data-carousel-prev" type="button"
-                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+        <button class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                id="data-carousel-prev"
+                type="button">
         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
             <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round"
-                                                                              stroke-linejoin="round" stroke-width="2"
-                                                                              d="M15 19l-7-7 7-7"></path></svg>
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 19l-7-7 7-7"
+                                                                              stroke-linecap="round"
+                                                                              stroke-linejoin="round"
+                                                                              stroke-width="2"></path></svg>
             <span class="hidden">Previous</span>
         </span>
         </button>
-        <button id="data-carousel-next" type="button"
-                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+        <button class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                id="data-carousel-next"
+                type="button">
         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
             <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round"
-                                                                              stroke-linejoin="round" stroke-width="2"
-                                                                              d="M9 5l7 7-7 7"></path></svg>
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5l7 7-7 7"
+                                                                              stroke-linecap="round"
+                                                                              stroke-linejoin="round"
+                                                                              stroke-width="2"></path></svg>
             <span class="hidden">Next</span>
         </span>
         </button>
     </div>
 
     <div class="mt-4 flex relative items-center w-full justify-center gap-32">
-        <button type="button"
-                class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+        <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                type="button">
             Prime
         </button>
-        <button type="button"
-                class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+        <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                type="button">
             Netflix
         </button>
-        <button type="button"
-                class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+        <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                type="button">
             Disney+
         </button>
-        <button type="button"
-                class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+        <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                type="button">
             Hulu
         </button>
     </div>
@@ -111,7 +119,7 @@
     </div>
     <!--    Pagination with page numbers -->
     <div class="flex justify-center">
-        <nav class="flex flex-row mt-10 mb-10" aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" class="flex flex-row mt-10 mb-10">
             <ul class="pagination" id="pagination">
                 <li class="page-item disabled page-link">
                     Previous
@@ -238,7 +246,7 @@
                 </li>`;
     }
 
-    function handlePaginationClick(pageNumber){
+    function handlePaginationClick(pageNumber) {
         page = pageNumber;
         renderMovies();
     }
@@ -270,6 +278,12 @@
 * Add a 'load more' button at the end of the page to load more movies from the API
 * Each movie should be clickable, (add placeholder instead of creating a page for each movie) - no need to create individual page, not required
 * Add carousel at top of page for suggesting top 5 movies from the APIs.
+
+
+BUGS TO FIX
+* When clicking on new platform button, page sohuld move to 1st page
+* Make the carousel fit the images
+*
 -->
 
 <!--<button id="carousel-indicator-1" type="button" class="w-3 h-3 rounded-full" aria-current="true"
