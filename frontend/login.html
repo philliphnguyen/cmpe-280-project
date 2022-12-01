@@ -54,11 +54,11 @@
           password: password.value
         })
       })
-
+ 
       const result = await res.json()
       
       if (result.success) {
-        window.location.href = 'index.html'
+        window.location.href = 'home.html'
         localStorage.setItem('user', JSON.stringify({
           jwt: result.jwt,
           email: result.user.email,

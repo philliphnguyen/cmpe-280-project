@@ -29,7 +29,8 @@
 <div>
     <div class="relative">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden sm:h-64 xl:h-80 2xl:h-96" id="slider-wrapper">
+        <div class="relative h-56 overflow-hidden sm:h-64 xl:h-80 2xl:h-96"
+             id="slider-wrapper" style="height: 400px; background-image: linear-gradient(to right, #414141, #000000);">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" id="carousel-item-1">
                 <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
@@ -96,18 +97,22 @@
 
     <div class="mt-4 flex relative items-center w-full justify-center gap-32">
         <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                onclick="fetchPlatformMovies('prime')"
                 type="button">
             Prime
         </button>
         <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                onclick="fetchPlatformMovies('netflix')"
                 type="button">
             Netflix
         </button>
         <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                onclick="fetchPlatformMovies('disney')"
                 type="button">
             Disney+
         </button>
         <button class="w-[200px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                onclick="fetchPlatformMovies('hulu')"
                 type="button">
             Hulu
         </button>
@@ -147,7 +152,7 @@
             innerCarousel.innerHTML = '';
             for (let i = 0; i < data.media.length; i++) {
                 carouselSlider.innerHTML += `<div class="hidden duration-700 ease-in-out" id="carousel-item-${i + 1}">
-                    <img src=${data.media[i].imageURL} alt="carousel item ${i + 1}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src=${data.media[i].imageURL} alt="carousel item ${i + 1}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                 </div>`;
                 innerCarousel.innerHTML += `<button id="carousel-indicator-${i + 1}" type="button" class="w-3 h-3 rounded-full" aria-current="true"
                     aria-label="Slide ${i + 1}"></button>`;
@@ -209,6 +214,7 @@
 <script>
     let movies = []
     let page = 0;
+    let platformName = 'prime';
 
     function renderMovies() {
         const movieContainer = document.getElementById('movie-container');
@@ -252,6 +258,10 @@
     }
 
     function fetchPlatformMovies(platform = "prime") {
+        if (platformName !== platform) {
+            page = 0;
+        }
+        platformName = platform;
         let requestBody = "query=" + `platform:${platform}`;
         fetch(`${API_URL}/media/search?${requestBody}`, {
             method: 'GET',
@@ -278,12 +288,6 @@
 * Add a 'load more' button at the end of the page to load more movies from the API
 * Each movie should be clickable, (add placeholder instead of creating a page for each movie) - no need to create individual page, not required
 * Add carousel at top of page for suggesting top 5 movies from the APIs.
-
-
-BUGS TO FIX
-* When clicking on new platform button, page sohuld move to 1st page
-* Make the carousel fit the images
-*
 -->
 
 <!--<button id="carousel-indicator-1" type="button" class="w-3 h-3 rounded-full" aria-current="true"
