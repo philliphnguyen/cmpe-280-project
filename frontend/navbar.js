@@ -2,7 +2,7 @@ class Navbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <nav class="navbar navbar-dark bg-dark px-3 navbar-expand-lg">
-            <a class="navbar-brand" href="home.html">Logo</a>
+            <a class="navbar-brand" href="home.html">The Reel</a>
             <input type='text' class='w-75' id='search-input'>
             <ul class="navbar-nav ms-auto">
                  <li class="nav-item" id="nav-watchlist">
