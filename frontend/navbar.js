@@ -37,7 +37,7 @@ script.innerHTML = `
       window.WebChat.default(
         {
           customData: { language: "en" },
-          socketUrl: "https://fbf8-98-42-73-55.ngrok.io",
+          socketUrl: "https://1ccc-98-42-73-55.ngrok.io",
           // add other props here
         },
         null
